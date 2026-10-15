@@ -2,3 +2,7 @@
 *.html -text
 *.xlsx binary
 *.db binary
+
+# GitHub language stats: count the project's code, not the saved CBK web page or generated output
+source/** linguist-vendored
+output/** linguist-generated
