@@ -1,0 +1,12 @@
+Source: https://www.centralbank.go.ke/inflation-rates/
+
+2026-10-15  Inflation Rates _ CBK.html     page saved from the browser. Holds only the 2 rows on the visible
+                                           page of the paginated table (Jan/Feb 2005) - not enough data.
+            Inflation Rates _ CBK_files/   page assets saved by the browser (not used)
+2026-10-15  Inflation Rates.xlsx           full table (262 rows) from the page's Excel button
+2026-10-15  cbk_inflation_live_2026-10-15.html
+                                           the live page fetched from the URL by src/fetch_live.py
+                                           (server HTML, all 262 rows), saved unchanged
+2026-10-15  cbk_inflation_final.csv        FINAL DATASET used from here on: the live page's table, compared
+                                           row by row with the Excel export (261 months, 0 differences;
+                                           April 2019 duplicate kept once). See docs/source_comparison.md

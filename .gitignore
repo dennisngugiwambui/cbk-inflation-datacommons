@@ -1,0 +1,5 @@
+env.list
+.env
+output/datacommons/
+__pycache__/
+*.pyc

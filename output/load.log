@@ -1,0 +1,60 @@
+INPUT_DIR=/data
+OUTPUT_DIR=/data
+INFO:root:DC API Root: https://api.datacommons.org
+INFO:root:DC API Key: <redacted>
+[2026-10-15 07:27:33,603 INFO main.py:56] Starting stats data importer job in mode: customdc
+[2026-10-15 07:27:33,910 INFO runner.py:238] Using default SQLite settings.
+[2026-10-15 07:27:33,940 INFO db.py:598] Connecting to SQLite: /data/datacommons/datacommons.db
+[2026-10-15 07:27:33,967 INFO db.py:600] Connected to SQLite: /data/datacommons/datacommons.db
+[2026-10-15 07:27:34,309 INFO runner.py:495] Found 1 csv files to import
+[2026-10-15 07:27:34,309 INFO runner.py:496] Found 1 mcf files to import
+[2026-10-15 07:27:34,432 INFO runner.py:506] Importing file: /data/observations.csv
+[2026-10-15 07:27:34,792 INFO db.py:359] Writing 282 observations to [sqlite: /data/datacommons/datacommons.db]
+[2026-10-15 07:27:34,800 INFO variable_per_row_importer.py:234] Found 1 total entities, of which 0 are already imported.
+[2026-10-15 07:27:34,801 INFO variable_per_row_importer.py:242] Getting entity types from DC for 1 entities.
+[2026-10-15 07:27:36,399 INFO _client.py:1740] HTTP Request: POST https://api.datacommons.org/v2/node "HTTP/1.1 200 OK"
+[2026-10-15 07:27:36,406 INFO variable_per_row_importer.py:249] Importing 1 of 1 entities.
+[2026-10-15 07:27:36,407 INFO runner.py:510] Importing MCF file: /data/variables.mcf
+[2026-10-15 07:27:36,439 INFO mcf_importer.py:59] Inserting 21 triples from /data/variables.mcf
+[2026-10-15 07:27:36,439 INFO db.py:352] Writing 21 triples to [sqlite: /data/datacommons/datacommons.db]
+[2026-10-15 07:27:36,485 INFO db.py:352] Writing 15 triples to [sqlite: /data/datacommons/datacommons.db]
+[2026-10-15 07:27:36,485 INFO runner.py:402] Hierarchy generation not enabled, skipping.
+[2026-10-15 07:27:36,600 INFO nl.py:69] Writing 4 NL sentences to: /data/datacommons/nl/sentences.csv
+[2026-10-15 07:27:37,016 INFO nl.py:77] Writing custom catalog to path /data/datacommons/nl/embeddings/custom_catalog.yaml:
+indexes:
+  user_all_minilm_mem:
+    embeddings_path: /data/datacommons/nl/embeddings/embeddings.csv
+    model: ft-final-v20230717230459-all-MiniLM-L6-v2
+    source_path: /data/datacommons/nl
+    store_type: MEMORY
+models:
+  ft-final-v20230717230459-all-MiniLM-L6-v2:
+    gcs_folder: gs://datcom-nl-models/ft_final_v20230717230459.all-MiniLM-L6-v2
+    score_threshold: 0.5
+    type: LOCAL
+    usage: EMBEDDINGS
+version: '1'
+
+[2026-10-15 07:27:37,030 INFO db.py:375] Writing import: status = SUCCESS, metadata = {'numVars': 2, 'numObs': 282}
+[2026-10-15 07:27:37,030 INFO db.py:640] Creating index: observations_entity_variable
+[2026-10-15 07:27:37,033 INFO db.py:642] Index created: observations_entity_variable
+[2026-10-15 07:27:37,033 INFO db.py:640] Creating index: triples_subject_id
+[2026-10-15 07:27:37,033 INFO db.py:642] Index created: triples_subject_id
+[2026-10-15 07:27:37,033 INFO db.py:640] Creating index: triples_subject_id_predicate
+[2026-10-15 07:27:37,033 INFO db.py:642] Index created: triples_subject_id_predicate
+[2026-10-15 07:27:37,033 INFO db.py:640] Creating index: observations_variable
+[2026-10-15 07:27:37,034 INFO db.py:642] Index created: observations_variable
+[2026-10-15 07:27:37,121 INFO runner.py:188] File storage closed.
+[2026-10-15 07:27:37,122 INFO main.py:61] Runner finished successfully.
+[2026-10-15 07:28:16,489 INFO config_reader.py:120] Loading index and model catalog from: /datacommons/nl/catalog.yaml
+[2026-10-15 07:28:16,551 INFO config_reader.py:120] Loading index and model catalog from: /data/datacommons/nl/embeddings/custom_catalog.yaml
+[2026-10-15 07:28:16,582 INFO utils.py:71] Loading model
+[2026-10-15 07:28:16,582 INFO SentenceTransformer.py:113] Load pretrained SentenceTransformer: /tmp/datcom-nl-models/ft_final_v20230717230459.all-MiniLM-L6-v2
+[2026-10-15 07:28:22,004 INFO SentenceTransformer.py:219] Use pytorch device_name: cpu
+[2026-10-15 07:28:22,562 ERROR utils.py:94] No columns to parse from file
+[2026-10-15 07:28:22,562 INFO utils.py:161] Compute embeddings with size 2
+[2026-10-15 07:28:22,563 INFO utils.py:177] 2 embeddings need computation
+[2026-10-15 07:28:22,563 INFO utils.py:179] texts 0 to 99
+[2026-10-15 07:28:23,602 INFO utils.py:194] Computing embeddings took 1.039534091949463 seconds
+[2026-10-15 07:28:23,725 INFO utils.py:207] Saved embeddings to /data/datacommons/nl/embeddings/embeddings.csv
+Data loading complete.

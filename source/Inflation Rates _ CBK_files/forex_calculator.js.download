@@ -1,0 +1,22 @@
+function recalculate()
+{
+    var postData=jQuery(".forex_calc_form").serialize();
+     var form_id=jQuery(this).attr('id');
+  jQuery.post('/wp-admin/admin-ajax.php',postData,function(response){
+    response=jQuery.parseJSON(response);
+    jQuery(".calculated_amount").html(response.result);
+  }); 
+}
+jQuery(document).ready(function(){
+ recalculate();
+});
+ jQuery(document).ready(function(){
+    var postData=jQuery(".forex_calc_form").serialize();
+  jQuery(".forex_calc_form").unbind('submit').submit('submit',function(){
+      jQuery.post('/wp-admin/admin-ajax.php',postData,function(response){
+      response=jQuery.parseJSON(response);
+      jQuery(".calculated_amount").html(response.result);
+    }); 
+  });
+});
+

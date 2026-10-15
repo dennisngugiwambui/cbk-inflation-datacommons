@@ -1,0 +1,24 @@
+Node: dcid:cbk/InflationRate_12Month
+typeOf: dcid:StatisticalVariable
+name: "12-month inflation rate (Kenya, CPI)"
+description: "Percentage change in the monthly consumer price index (CPI) compared with the same month of the previous year. Published by the Central Bank of Kenya; source: Kenya National Bureau of Statistics."
+populationType: dcid:EconomicActivity
+measuredProperty: dcid:inflation
+statType: dcid:measuredValue
+constraintProperties: dcid:activitySource
+activitySource: dcid:ConsumerPriceIndex
+measurementQualifier: dcid:Monthly
+comparisonPeriod: dcid:YearOnChange
+unit: dcid:Percent
+
+Node: dcid:cbk/InflationRate_AnnualAverage
+typeOf: dcid:StatisticalVariable
+name: "Annual average inflation rate (Kenya, CPI)"
+description: "Percentage change in the annual average consumer price index (CPI) of the corresponding months, i.e. the average CPI of the 12 months ending in the month compared with the average of the previous 12 months. Published by the Central Bank of Kenya; source: Kenya National Bureau of Statistics."
+populationType: dcid:EconomicActivity
+measuredProperty: dcid:inflation
+statType: dcid:measuredValue
+constraintProperties: dcid:activitySource
+activitySource: dcid:ConsumerPriceIndex
+measurementQualifier: dcid:Annual
+unit: dcid:Percent

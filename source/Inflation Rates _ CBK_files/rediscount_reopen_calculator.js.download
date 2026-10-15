@@ -1,0 +1,38 @@
+jQuery(document).ready(function(){
+
+
+jQuery(".rediscount_reopen_calculator").unbind('submit').bind('submit',function(e){
+    e.preventDefault();
+    var postData=jQuery(this).serialize();
+     var form_id=jQuery(this).attr('id');
+    jQuery.post(
+    '/wp-admin/admin-ajax.php', 
+    postData, 
+    function(response){
+        response=jQuery.parseJSON(response);
+       
+        //alert(form_id);
+        jQuery('#'+form_id+' '+'input').each(function() {
+                        id=(jQuery(this).attr('id')==undefined)?jQuery(this).attr('name'):jQuery(this).attr('id');
+                        //alert(id);
+                        if(response[id]!=undefined)
+                        {
+                            tag_name=jQuery(this).prop('tagName').toLowerCase();
+                            if(tag_name=='input')
+                            {
+                                jQuery(this).val(response[id]);
+                            }
+                        }
+
+                    });
+    });
+
+  });
+
+});
+
+jQuery(function() {
+                jQuery( ".datepicker" ).datepicker({
+                    dateFormat : "dd-mm-yy"
+                });
+            });
